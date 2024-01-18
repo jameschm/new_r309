@@ -1,0 +1,38 @@
+1. Ce code est une fonction récursive qui effectue une division entière. 
+Elle prend deux arguments entiers, x et y, et renvoie le quotient de la division de x par y. 
+Si x est inférieur à y, elle renvoie 0. 
+Sinon, elle soustrait y de x et appelle à nouveau la fonction avec les nouvelles valeurs de x et y, en ajoutant 1 au résultat.
+
+2. `divEntier(10, 2)`, la fonction renverra 5.
+
+Exercices :
+
+1. 
+def main():
+    x = int(input("Entrez la valeur de x: "))
+    y = int(input("Entrez la valeur de y: "))
+    print(divEntier(x, y))
+
+if __name__ == "__main__":
+    main()
+
+
+2. Pour gérer l'exception ValueError, vous pouvez ajouter un bloc try/except autour de la conversion en int des entrées. 
+Vous devez gérer ValueError pour éviter que votre programme ne se bloque si l'utilisateur entre une valeur qui n'est pas un entier.
+
+3. Si vous saisissez la valeur 0 pour y, une erreur de division par zéro se produira. 
+Pour gérer cette exception, vous pouvez ajouter un autre bloc try/except.
+
+4. 
+def divEntier(x: int, y: int) -> int:
+    if x < 0 or y < 0:
+        raise ValueError("Les nombres doivent être positifs")
+    if y == 0:
+        raise ValueError("La division par zéro n'est pas autorisée")
+    if x < y:
+        return 0
+    else:
+        x = x - y
+        return divEntier(x, y) + 1
+
+
