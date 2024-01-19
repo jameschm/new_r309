@@ -10,7 +10,6 @@ import mysql.connector
 import socket
 import threading
 import time
-import sys
 
 DATABASE = {
     'host': 'localhost',
@@ -759,7 +758,7 @@ def authenticate_to_server():
         logging.warning("Invalid credentials. Please try again.")
 
     logging.error("Maximum number of attempts exceeded")
-    sys.exit()
+    return False
 
 def validate_server(login, password):
     """
